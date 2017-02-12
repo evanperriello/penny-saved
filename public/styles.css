@@ -1,0 +1,22 @@
+nav {
+    border-bottom:gray 1px solid;
+}
+nav li {
+    text-decoration:none;
+    display:inline-block;
+}
+#switchGame {
+    width:375px;
+    height:250px;
+}
+
+.switches {
+    width:120px;
+    height:120px;
+    border-radius:5px;
+    display:inline-block;
+    background:orange;
+    margin:2px;
+    padding:0;
+    text-decoration:none;
+}
