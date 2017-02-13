@@ -10,6 +10,7 @@ var Visualizer = React.createClass({
     getInitialState: function(){
         return {
             goalAmount: 0,
+            itemPrice: 0
         };
     },
     //take the goal amount from the form and store it in state here.
@@ -18,15 +19,14 @@ var Visualizer = React.createClass({
             goalAmount: goalAmount
         });
     },
-    
     render: function(props){
-        var {goalAmount} = this.state;
+        var {goalAmount, itemPrice} = this.state;
         return (
             <div>
-                <VisItems/>
+                <VisItems onChangeItems/>
                 <Form onSetGoal={this.handleGoal}/>
                 <Goals/>
-                <Results goalAmount={goalAmount}/>
+                <Results goalAmount={goalAmount} itemPrice={itemPrice}/>
                 <PrintButton/>
             </div>
             );

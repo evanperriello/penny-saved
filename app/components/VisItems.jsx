@@ -15,22 +15,30 @@ var VisItems = React.createClass({
         ],
         
     },
-    getItemToChange : function(itemName){
-        for (var i=0; i< this.model.items.length ; i++) {
-            if (this.model.items[i].name == itemName) return this.model.items[i];
+    //grab an item from the array
+    getItemToChange : function(arr, itemName){
+        for (var i=0; i < arr.length ; i++) {
+            if (arr[i].name == itemName) return arr[i];
         }
     },
+    //change the price of the array item.
     changePrice: function(e){
         var itemName = e.target.name;
         var newPrice = Number(e.target.value);
-        var changedItem = this.getItemToChange(itemName);
+        var changedItem = this.getItemToChange(this.model.items, itemName);
         changedItem.price = newPrice;
     },
+    //populate an array with all the visItems as jsx list items
+    listItems: function(items){
+        return (
+            items.map((item) => {
+                return <li className="item" key={item.name}>{item.name} - $<input name={item.name} onChange={this.changePrice} className="itemPrice" type="text" defaultValue={item.price}/></li>;
+            })
+        );
+    },
+    //render the list items.
     renderItems: function(){
-        var items = this.model.items;
-        var allItems = items.map((item) => {
-            return <li className="item" key={item.name}>{item.name} - $<input name={item.name} onChange={this.changePrice} className="itemPrice" type="text" defaultValue={item.price}/></li>;
-        });
+        var allItems = this.listItems(this.model.items);
         return <ul>{allItems}</ul>;
     },
     render: function(){

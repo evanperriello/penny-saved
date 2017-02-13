@@ -3,9 +3,10 @@ var React = require("react");
 var Results = React.createClass({
     render: function(){
         var goalAmount = this.props.goalAmount;
+        var itemPrice = this.props.itemPrice;
         return (
             <div>
-                <h1>${goalAmount} is your goal.</h1>
+                <h1>${goalAmount} divided by ${itemPrice}.</h1>
             </div>
         );
     }
