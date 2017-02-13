@@ -6,14 +6,27 @@ var React = require("react"),
     VisItems = require("VisItems");
     
 
-var Game = React.createClass({
+var Visualizer = React.createClass({
+    getInitialState: function(){
+        return {
+            goalAmount: 0,
+        };
+    },
+    //take the goal amount from the form and store it in state here.
+    handleGoal: function(goalAmount){
+        this.setState({
+            goalAmount: goalAmount
+        });
+    },
+    
     render: function(props){
+        var {goalAmount} = this.state;
         return (
             <div>
                 <VisItems/>
-                <Form/>
+                <Form onSetGoal={this.handleGoal}/>
                 <Goals/>
-                <Results/>
+                <Results goalAmount={goalAmount}/>
                 <PrintButton/>
             </div>
             );
@@ -21,4 +34,4 @@ var Game = React.createClass({
     
 });
 
-module.exports = Game;
+module.exports = Visualizer;

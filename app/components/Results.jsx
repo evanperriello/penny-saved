@@ -2,11 +2,12 @@ var React = require("react");
 
 var Results = React.createClass({
     render: function(){
+        var goalAmount = this.props.goalAmount;
         return (
             <div>
-                <h1>These are the Results.</h1>
+                <h1>${goalAmount} is your goal.</h1>
             </div>
-            );
+        );
     }
     
 });

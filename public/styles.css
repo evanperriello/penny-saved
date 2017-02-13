@@ -20,3 +20,6 @@ nav li {
     padding:0;
     text-decoration:none;
 }
+.itemPrice {
+    width: 20px;
+}
