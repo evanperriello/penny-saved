@@ -4,10 +4,10 @@ var Results = React.createClass({
     render: function(){
         var goalAmount = this.props.goalAmount;
         var itemPrice = this.props.itemPrice;
-        var selectedItems = this.props.selectedItems;
+        var selectedNames = this.props.selectedNames;
         return (
             <div>
-                <h1>${goalAmount} divided by parse items and put them here! at ${itemPrice} each.</h1>
+                <h1>Divided into: {selectedNames}.</h1>
             </div>
         );
     }

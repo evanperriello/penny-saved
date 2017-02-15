@@ -3,14 +3,14 @@ var React = require("react");
 var VisItems = React.createClass({
     model: {
         items: [
-            {name: "Coffee", price: 4, image: "imagesource.jpg"},
-            {name: "Dinner Out", price: 20, image: "imagesource.jpg"},
-            {name: "Lunch Out", price: 10, image: "imagesource.jpg"},
-            {name: "Movie Ticket", price: 15, image: "imagesource.jpg"},
-            {name: "Pack of Cigarettes", price: 10, image: "imagesource.jpg"},
-            {name: "6 pack of Beer", price: 10, image: "imagesource.jpg"},
-            {name: "Bottle of Wine", price: 10, image: "imagesource.jpg"},
-            {name: "Beer/Wine Out", price: 7, image: "imagesource.jpg"},
+            {name: "Coffees", price: 4, image: "imagesource.jpg"},
+            {name: "Dinners Out", price: 20, image: "imagesource.jpg"},
+            {name: "Lunches Out", price: 10, image: "imagesource.jpg"},
+            {name: "Movie Tickets", price: 15, image: "imagesource.jpg"},
+            {name: "Packs of Cigarettes", price: 10, image: "imagesource.jpg"},
+            {name: "Six-packs of Beer", price: 10, image: "imagesource.jpg"},
+            {name: "Bottles of Wine", price: 10, image: "imagesource.jpg"},
+            {name: "Beers/Wines Out", price: 7, image: "imagesource.jpg"},
             {name: "Other", price: 1, image: "imagesource.jpg"},
         ],
         
@@ -54,7 +54,6 @@ var VisItems = React.createClass({
     render: function(){
         return (
             <div>
-                <h1>VisItems</h1>
                 {this.renderItems(this.model.items)}
             </div>
             );

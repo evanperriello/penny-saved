@@ -11,8 +11,12 @@ var Visualizer = React.createClass({
         return {
             goalAmount: 0,
             itemPrice: 0,
-            selectedItems: []
+            selectedItems: [],
+            selectedNamesPrices: ""
         };
+    },
+    copyArray: function(arr){
+        return arr.slice();
     },
     //take the goal amount from the form and store it in state
     handleGoal: function(goalAmount){
@@ -20,31 +24,34 @@ var Visualizer = React.createClass({
             goalAmount: goalAmount
         });
     },
-    //CREATE FUNCTIONS TO PARSE THE DATA PASSED BY HANDLESELECTED AND PASS IT TO RESULTS
-    
-    //REFACTOR THIS FUNCTION NEXT
+    //parse the selected items into a name (price) string
+    parseSelectedItems: function(selectedItems){
+        var itemInfo = "";
+        selectedItems.forEach(function(item){
+            itemInfo += item.name + " ($" + item.price + "), "; 
+        });
+        return itemInfo;
+    },
     handleSelected: function(selectedItem){
-        //create a new array copied from the state array
-        var changedArray = this.state.selectedItems.slice();
-        //if the new array does not already contain the selected item, add it
-        if (changedArray.indexOf(selectedItem) === -1){
-               changedArray.push(selectedItem);
-        //if it does contain it, then remove the clicked object
+        //add or remove the clicked item from the array.
+        var copiedArray = this.copyArray(this.state.selectedItems);
+        if (copiedArray.indexOf(selectedItem) === -1){
+               copiedArray.push(selectedItem);
         } else {
-            changedArray.splice(changedArray.indexOf(selectedItem), 1);
+            copiedArray.splice(copiedArray.indexOf(selectedItem), 1);
         }
-        console.log(changedArray);
-        this.setState({ selectedItems: changedArray});
+        var selectedNamesPrices = this.parseSelectedItems(copiedArray);
+        this.setState({ selectedItems: copiedArray, selectedNamesPrices: selectedNamesPrices});
     },
     
     render: function(props){
-        var {goalAmount, selectedItems} = this.state;
+        var {goalAmount, selectedItems, selectedNamesPrices} = this.state;
         return (
             <div>
                 <VisItems onSelectItems={this.handleSelected}/>
                 <Form onSetGoal={this.handleGoal}/>
-                <Goals/>
-                <Results selectedItems={selectedItems} goalAmount={goalAmount} itemPrice={selectedItems.price}/>
+                <Goals  goalAmount={goalAmount}/>
+                <Results selectedItems={selectedItems} selectedNames={selectedNamesPrices} itemPrice={selectedItems.price}/>
                 <PrintButton/>
             </div>
             );
