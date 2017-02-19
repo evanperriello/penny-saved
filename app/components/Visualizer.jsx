@@ -12,7 +12,7 @@ var Visualizer = React.createClass({
             goalAmount: 0,
             itemPrice: 0,
             selectedItems: [],
-            selectedNamesPrices: ""
+            selectedParsed: ""
         };
     },
     copyArray: function(arr){
@@ -24,13 +24,25 @@ var Visualizer = React.createClass({
             goalAmount: goalAmount
         });
     },
-    //parse the selected items into a name (price) string
-    parseSelectedItems: function(selectedItems){
-        var itemInfo = "";
-        selectedItems.forEach(function(item){
-            itemInfo += item.name + " ($" + item.price + "), "; 
-        });
-        return itemInfo;
+    //parse the selected items into jsx components
+    parseSelectedItems: function(items, goalAmount){
+        var j = 0;
+        return (
+            items.map((item) => {
+                var arr = [];
+                var numItems = goalAmount/item.price;
+                for (var i = 0; i < numItems; i++) {
+                    arr.push(<img src={item.image} key={item.name + "img" + i}/>);
+                }
+                j++;
+                return (
+                    <div key={item.name + "div" + j}>
+                        <h2>{item.name + " ($" + item.price + " each)"}</h2>
+                        <div>{arr}</div>
+                    </div>
+                    );
+            })
+        );
     },
     handleSelected: function(selectedItem){
         //add or remove the clicked item from the array.
@@ -40,18 +52,18 @@ var Visualizer = React.createClass({
         } else {
             copiedArray.splice(copiedArray.indexOf(selectedItem), 1);
         }
-        var selectedNamesPrices = this.parseSelectedItems(copiedArray);
-        this.setState({ selectedItems: copiedArray, selectedNamesPrices: selectedNamesPrices});
+        var selectedParsed = this.parseSelectedItems(copiedArray, this.state.goalAmount);
+        this.setState({ selectedItems: copiedArray, selectedParsed: selectedParsed});
     },
     
     render: function(props){
-        var {goalAmount, selectedItems, selectedNamesPrices} = this.state;
+        var {goalAmount, selectedItems, selectedParsed} = this.state;
         return (
             <div>
                 <VisItems onSelectItems={this.handleSelected}/>
                 <Form onSetGoal={this.handleGoal}/>
                 <Goals  goalAmount={goalAmount}/>
-                <Results selectedItems={selectedItems} selectedNames={selectedNamesPrices} itemPrice={selectedItems.price}/>
+                <Results selectedParsed={selectedParsed}/>
                 <PrintButton/>
             </div>
             );
