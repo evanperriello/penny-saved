@@ -18,9 +18,9 @@ var Form = React.createClass({
         return (
             //on submission of the form, call the onFormSubmit function
             <div>
-                <form onSubmit={this.onFormSubmit}>
-                    <input type="text" ref="goalAmount"/>
-                    <button type="submit">Set Your Goal</button>
+                <form  id="goalForm" onSubmit={this.onFormSubmit}>
+                    <input id="goalInput" type="text" ref="goalAmount"/>
+                    <button id="goalButton" type="submit">Set Your Goal</button>
                 </form>
             </div>
             );

@@ -1,25 +1,101 @@
-nav {
-    border-bottom:gray 1px solid;
+body, h1, h2, h3, li {
+    margin:0;
+    padding:0;
 }
-nav li {
+nav {
+    background:rgb(52, 177, 181);
+    position:relative;
+    color:white;
+    margin:0;
+    padding:0;
+    height:100px;
+}
+#results {
+    font-size:1.5em;
+    text-align:center;
+    color:rgb(119, 115, 115);  
+}
+#navLinkList{
+    position:absolute;
+    right:25px;
+    bottom:-1px;
+    font-size:1.3em;
+}
+#siteTitle {
+    display: inline-block;
+    margin:0 auto;
+    font-size:4em;
+    width:100%;
+    text-align:center;
+    top:50px;
+}
+#currentGoal {
+    font-size:5em;
+    text-align:center;
+    color:rgb(119, 115, 115);
+}
+#goalForm {
+    width:400px;
+    display: block;
+    margin: 20px auto;
+    text-align:center;
+}
+#goalInput, #goalButton {
+    height:40px;
+    border: rgb(221, 215, 215) solid 2px;
+    border-radius: 5px 0 0 5px;
+    font-size:1.5em;
+    color:rgb(119, 115, 115);
+}
+#goalButton {
+   border-radius: 0 5px 5px 0;
+   box-shadow:none;
+   background: white;
+   cursor: pointer;
+}
+#goalInput {
+    text-align:center;
+    width:200px;
+    border-right:none;
+}
+.navLink{
     text-decoration:none;
     display:inline-block;
+    border: none;
+    text-align:center;
 }
-#switchGame {
-    width:375px;
-    height:250px;
+nav ul {
+    margin:0;
+    position: absolute;
+    bottom:0px;
+}
+nav li a {
+    text-decoration:none;
+    color:white;
+    padding:0 30px;
+}
+.active {
+    background:white;
+    color:rgb(52, 177, 181);
+}
+.item {
+    text-decoration:none;
+    width:250px;
+    display:inline-block;
+    margin:5px;
+    background: rgb(52, 177, 181);
+    text-align:center;
+    color:white;
+    padding: 10px 0;
+    border-radius:5px;
+    font-size:1.3em;
 }
 
-.switches {
-    width:120px;
-    height:120px;
-    border-radius:5px;
-    display:inline-block;
-    background:orange;
-    margin:2px;
-    padding:0;
-    text-decoration:none;
-}
+
 .itemPrice {
-    width: 20px;
+    width: 40px;
+    font-size:1.02em;
+    background:rgb(52, 177, 181);
+    color:white;
+    border:none;
 }

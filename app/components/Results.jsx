@@ -4,8 +4,8 @@ var Results = React.createClass({
     render: function(){
         var selectedParsed = this.props.selectedParsed;
         return (
-            <div>
-                <h1>Divided into:</h1>
+            <div id="results">
+                <h1>in</h1>
                 {selectedParsed}
             </div>
         );

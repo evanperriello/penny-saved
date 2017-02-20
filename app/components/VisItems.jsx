@@ -8,9 +8,9 @@ var VisItems = React.createClass({
             {name: "Lunches Out", price: 10, image: "/images/coffeeCup.jpg"},
             {name: "Movie Tickets", price: 15, image: "images/coffeeCup.jpg"},
             {name: "Packs of Cigarettes", price: 10, image: "images/coffeeCup.jpg"},
-            {name: "Six-packs of Beer", price: 10, image: "images/coffeeCup.jpg"},
+            {name: "Six-Packs of Beer", price: 10, image: "images/coffeeCup.jpg"},
             {name: "Bottles of Wine", price: 10, image: "images/coffeeCup.jpg"},
-            {name: "Beers/Wines Out", price: 7, image: "images/coffeeCup.jpg"},
+            {name: "Drinks at a Bar", price: 7, image: "images/coffeeCup.jpg"},
             {name: "Other", price: 1, image: "images/coffeeCup.jpg"},
         ],
         

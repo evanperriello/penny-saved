@@ -26,6 +26,7 @@ var Visualizer = React.createClass({
     },
     //parse the selected items into jsx components
     parseSelectedItems: function(items, goalAmount){
+        //variable to distinguish keys of generated divs.
         var j = 0;
         return (
             items.map((item) => {
@@ -60,8 +61,8 @@ var Visualizer = React.createClass({
         var {goalAmount, selectedItems, selectedParsed} = this.state;
         return (
             <div>
-                <VisItems onSelectItems={this.handleSelected}/>
                 <Form onSetGoal={this.handleGoal}/>
+                <VisItems onSelectItems={this.handleSelected}/>
                 <Goals  goalAmount={goalAmount}/>
                 <Results selectedParsed={selectedParsed}/>
                 <PrintButton/>
