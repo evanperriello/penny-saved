@@ -5,7 +5,7 @@ var Results = React.createClass({
         var selectedParsed = this.props.selectedParsed;
         return (
             <div id="results">
-                <h1>in</h1>
+                <h1>In</h1>
                 {selectedParsed}
             </div>
         );
