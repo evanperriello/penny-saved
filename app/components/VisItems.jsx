@@ -23,7 +23,7 @@ var VisItems = React.createClass({
     //render the listed items.
     renderItems: function(arr){
         var allItems = this.listItems(arr);
-        return <ul>{allItems}</ul>;
+        return <ul id="itemsList">{allItems}</ul>;
     },
     render: function(){
         return (

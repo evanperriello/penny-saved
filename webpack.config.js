@@ -22,6 +22,7 @@ module.exports = {
             Goals: "app/components/Goals.jsx",
             Form: "app/components/Form.jsx",
             Results: "app/components/Results.jsx",
+            Tips: "app/components/Tips.jsx",
             Visualizer: "app/components/Visualizer.jsx",
             VisItems: "app/components/VisItems.jsx",
             PrintButton: "app/components/PrintButton.jsx"

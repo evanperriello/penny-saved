@@ -16,13 +16,12 @@ var Visualizer = React.createClass({
             items: [
                 {name: "Coffees", price: 4, image: "./images/coffee.png"},
                 {name: "Dinners Out", price: 20, image: "../images/dinner.png"},
-                {name: "Lunches Out", price: 10, image: "/images/dinner.png"},
+                {name: "Lunches Out", price: 10, image: "/images/lunch.png"},
                 {name: "Movie Tickets", price: 15, image: "images/movie.png"},
-                {name: "Packs of Cigarettes", price: 10, image: "images/coffee.png"},
-                {name: "Six-Packs of Beer", price: 10, image: "images/coffee.png"},
-                {name: "Bottles of Wine", price: 10, image: "images/coffee.png"},
-                {name: "Drinks at a Bar", price: 7, image: "images/coffee.png"},
-                {name: "Other", price: 1, image: "images/coffee.png"},
+                {name: "Packs of Cigarettes", price: 10, image: "images/cigarettes.png"},
+                {name: "Six-Packs of Beer", price: 10, image: "images/beer.png"},
+                {name: "Bottles of Wine", price: 10, image: "images/wine.png"},
+                {name: "Drinks at a Bar", price: 7, image: "images/cocktail.png"},
             ],
         };
     },
@@ -98,12 +97,12 @@ var Visualizer = React.createClass({
     render: function(props){
         var {items, goalAmount, selectedItems, selectedParsed} = this.state;
         return (
+            //add printbutton component when it's done
             <div>
                 <Form onSetGoal={this.handleGoal}/>
                 <VisItems getItem={this.getItemByName} items={items} onChangePrice={this.handlePriceChange} onSelectItems={this.handleSelected}/>
                 <Goals  goalAmount={goalAmount}/>
                 <Results selectedParsed={selectedParsed}/>
-                <PrintButton/>
             </div>
             );
     }

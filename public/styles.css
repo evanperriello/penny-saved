@@ -1,4 +1,4 @@
-body, h1, h2, h3, li {
+body, h1, h2, h3, li, ul, p {
     margin:0;
     padding:0;
 }
@@ -10,10 +10,27 @@ nav {
     padding:0;
     height:100px;
 }
+li {
+    text-decoration:none;
+    list-style-type:none;
+}
+#about {
+    font-size:1.5em;
+    text-align:center;
+    color:rgb(119, 115, 115);
+}
+#about li {
+    margin-top:10px;
+}
 #results {
     font-size:1.5em;
     text-align:center;
     color:rgb(119, 115, 115);  
+}
+#mainBody {
+    width:95%;
+    margin:0 auto;
+    text-align:center;
 }
 #navLinkList{
     position:absolute;
@@ -29,6 +46,17 @@ nav {
     text-align:center;
     top:50px;
 }
+#TipsDiv {
+    width:50%;
+    color:rgb(119, 115, 115);
+    font-size:1.4em;
+    background:rgba(52, 177, 181);
+    background: rgba(52, 177, 181, 0.3);
+    border-radius: 5px 0 0 5px;
+    margin: 10px auto 0 auto;
+    text-align: center;
+    
+}
 #currentGoal {
     font-size:5em;
     text-align:center;
@@ -42,7 +70,7 @@ nav {
 }
 #goalInput, #goalButton {
     height:40px;
-    border: rgb(221, 215, 215) solid 2px;
+    border: rgb(52, 177, 181) solid 4px;
     border-radius: 5px 0 0 5px;
     font-size:1.5em;
     color:rgb(119, 115, 115);
@@ -52,6 +80,9 @@ nav {
    box-shadow:none;
    background: white;
    cursor: pointer;
+}
+#goalButton:hover {
+    background:rgba(52, 177, 181, 0.2);
 }
 #goalInput {
     text-align:center;
@@ -80,7 +111,7 @@ nav li a {
 }
 .item {
     text-decoration:none;
-    width:250px;
+    width:220px;
     display:inline-block;
     margin:5px;
     background: rgb(52, 177, 181);
@@ -88,10 +119,12 @@ nav li a {
     color:white;
     padding: 10px 0;
     border-radius:5px;
-    font-size:1.3em;
+    font-size:1.2em;
 }
 
-
+.itemsList {
+    margin: 0 auto;
+}
 .itemPrice {
     width: 40px;
     font-size:1.02em;
