@@ -86,18 +86,23 @@ var Visualizer = React.createClass({
         selectedItem.selected = !selectedItem.selected;
         return selectedItem;
     },
-    handleSelected: function(selectedItem){
-        //add or remove the clicked item from the array.
-        var copiedArray = this.copyArray(this.state.selectedItems);
-        if (copiedArray.indexOf(selectedItem) === -1){
-            this.toggleSelected(selectedItem);
-            copiedArray.push(selectedItem);
-        } else {
-            this.toggleSelected(selectedItem);
-            copiedArray.splice(copiedArray.indexOf(selectedItem), 1);
+    //gather only the selected items into a new array
+    gatherSelected: function(arr){
+        var newArr = [];
+        for (var i=0; i < arr.length ; i++) {
+            if (arr[i].selected) {
+                newArr.push(arr[i]);
+            }
         }
-        var selectedParsed = this.parseSelectedItems(copiedArray, this.state.goalAmount);
-        this.setState({ selectedItems: copiedArray, selectedParsed: selectedParsed});
+        return newArr;
+    },
+    handleSelected: function(selectedItem){
+        //change "selected" attr of clicked item
+        this.toggleSelected(selectedItem);
+        //gather an array of the items with selected=true
+        var allSelected = this.gatherSelected(this.state.items);
+        var selectedParsed = this.parseSelectedItems(allSelected, this.state.goalAmount);
+        this.setState({ selectedItems: allSelected, selectedParsed: selectedParsed});
     },
     
     render: function(props){
