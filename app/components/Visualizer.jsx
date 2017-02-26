@@ -14,14 +14,14 @@ var Visualizer = React.createClass({
             selectedItems: [],
             selectedParsed: "",
             items: [
-                {name: "Coffees", price: 4, image: "./images/coffee.png"},
-                {name: "Dinners Out", price: 20, image: "../images/dinner.png"},
-                {name: "Lunches Out", price: 10, image: "/images/lunch.png"},
-                {name: "Movie Tickets", price: 15, image: "images/movie.png"},
-                {name: "Packs of Cigarettes", price: 10, image: "images/cigarettes.png"},
-                {name: "Six-Packs of Beer", price: 10, image: "images/beer.png"},
-                {name: "Bottles of Wine", price: 10, image: "images/wine.png"},
-                {name: "Drinks at a Bar", price: 7, image: "images/cocktail.png"},
+                {name: "Coffees", price: 4, image: "./images/coffee.png", selected: false},
+                {name: "Dinners Out", price: 20, image: "../images/dinner.png", selected: false},
+                {name: "Lunches Out", price: 10, image: "/images/lunch.png", selected: false},
+                {name: "Movie Tickets", price: 15, image: "images/movie.png", selected: false},
+                {name: "Packs of Cigarettes", price: 10, image: "images/cigarettes.png", selected: false},
+                {name: "Six-Packs of Beer", price: 10, image: "images/beer.png", selected: false},
+                {name: "Bottles of Wine", price: 10, image: "images/wine.png", selected: false},
+                {name: "Drinks at a Bar", price: 7, image: "images/cocktail.png", selected: false},
             ],
         };
     },
@@ -62,7 +62,7 @@ var Visualizer = React.createClass({
                 j++;
                 return (
                     <div key={item.name + "div" + j}>
-                        <h2>{item.name + " ($" + item.price + " each)"}</h2>
+                        <h2>{Math.ceil(numItems) + " " + item.name + " ($" + item.price + " each)"}</h2>
                         <div>{arr}</div>
                     </div>
                     );
@@ -82,12 +82,18 @@ var Visualizer = React.createClass({
             this.setState({ items: newItemArray, selectedParsed: selectedParsed });
         }
     },
+    toggleSelected: function(selectedItem){
+        selectedItem.selected = !selectedItem.selected;
+        return selectedItem;
+    },
     handleSelected: function(selectedItem){
         //add or remove the clicked item from the array.
         var copiedArray = this.copyArray(this.state.selectedItems);
         if (copiedArray.indexOf(selectedItem) === -1){
-               copiedArray.push(selectedItem);
+            this.toggleSelected(selectedItem);
+            copiedArray.push(selectedItem);
         } else {
+            this.toggleSelected(selectedItem);
             copiedArray.splice(copiedArray.indexOf(selectedItem), 1);
         }
         var selectedParsed = this.parseSelectedItems(copiedArray, this.state.goalAmount);
@@ -95,7 +101,7 @@ var Visualizer = React.createClass({
     },
     
     render: function(props){
-        var {items, goalAmount, selectedItems, selectedParsed} = this.state;
+        var {items, goalAmount, selectedParsed} = this.state;
         return (
             //add printbutton component when it's done
             <div>

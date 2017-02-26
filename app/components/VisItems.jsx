@@ -11,12 +11,21 @@ var VisItems = React.createClass({
     listItems: function(items){
         return (
             items.map((item) => {
-                return (
-                    <li className="item" id={item.name} key={item.name} onClick={this.selectItem}>
-                        {item.name} - $
-                        <input name={item.name} onChange={this.props.onChangePrice} className="itemPrice" type="text" defaultValue={item.price}/>
-                    </li>
+                if (item.selected) {
+                    return (
+                        <li className="item selected" id={item.name} key={item.name} onClick={this.selectItem}>
+                            {item.name} - $
+                            <input name={item.name} onChange={this.props.onChangePrice} className="itemPrice" type="text" defaultValue={item.price}/>
+                        </li>
                     );
+                } else {
+                    return (
+                        <li className="item" id={item.name} key={item.name} onClick={this.selectItem}>
+                            {item.name} - $
+                            <input name={item.name} onChange={this.props.onChangePrice} className="itemPrice" type="text" defaultValue={item.price}/>
+                        </li>
+                    );
+                }
             })
         );
     },
