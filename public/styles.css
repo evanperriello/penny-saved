@@ -1,4 +1,7 @@
-body, h1, h2, h3, li, ul, p {
+div {
+    box-sizing:border-box;
+}
+body, h1, h2, h3, li, ul{
     margin:0;
     padding:0;
 }
@@ -8,7 +11,7 @@ nav {
     color:white;
     margin:0;
     padding:0;
-    height:100px;
+    height:130px;
 }
 img {
     width:130px;
@@ -44,10 +47,11 @@ li {
 }
 #siteTitle {
     display: inline-block;
-    margin:0 auto;
+    margin:20px auto;
     font-size:4em;
     width:100%;
     text-align:center;
+    text-shadow: 1px 1px 2px black;
     top:50px;
 }
 #TipsDiv {
@@ -56,10 +60,13 @@ li {
     font-size:1.4em;
     background:rgba(52, 177, 181);
     background: rgba(52, 177, 181, 0.3);
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 25px 0px rgba(219,219,219,1);
     margin: 10px auto 0 auto;
     text-align: center;
-    
+}
+#TipsDiv p {
+    padding: 10px 5px;
 }
 #currentGoal {
     font-size:5em;
@@ -76,12 +83,12 @@ li {
     height:40px;
     border: rgb(52, 177, 181) solid 4px;
     border-radius: 5px 0 0 5px;
+    box-shadow: 1px 1px 25px 0px rgba(219,219,219,1);
     font-size:1.5em;
     color:rgb(119, 115, 115);
 }
 #goalButton {
    border-radius: 0 5px 5px 0;
-   box-shadow:none;
    background: white;
    cursor: pointer;
 }
@@ -93,11 +100,17 @@ li {
     width:200px;
     border-right:none;
 }
+#pig {
+    width:60px;
+    height:60px;
+    margin-right:20px;
+}
 .navLink{
     text-decoration:none;
     display:inline-block;
     border: none;
     text-align:center;
+    text-shadow: 1px 1px 2px black;
 }
 nav ul {
     margin:0;
@@ -112,8 +125,11 @@ nav li a {
 .active {
     background:white;
     color:rgb(52, 177, 181);
+    border-radius:5px 5px 0 0;
+    text-shadow: none;
 }
 .item {
+    box-shadow: 1px 1px 25px 0px rgba(219,219,219,1);
     text-decoration:none;
     width:220px;
     display:inline-block;
@@ -121,14 +137,17 @@ nav li a {
     background: rgb(52, 177, 181);
     text-align:center;
     color:white;
-    padding: 10px 0;
+    padding: 10px 5px;
     border-radius:5px;
     font-size:1.2em;
     cursor: pointer;
+    text-shadow: 1px 1px 2px black;
 }
-
+.item:hover {
+    background: rgb(70, 194, 196);
+}
 .selected {
-    background: rgb(68, 234, 237);
+    background: rgb(60, 221, 224);
 }
 
 .itemsList {
@@ -137,11 +156,8 @@ nav li a {
 .itemPrice {
     width: 40px;
     font-size:1.02em;
-    background:rgb(52, 177, 181);
+    background:inherit;
     color:white;
     border:none;
-}
-
-.selected .itemPrice {
-    background: rgb(68, 234, 237);
+    text-shadow: 1px 1px 2px black;
 }
