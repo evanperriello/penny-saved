@@ -1,3 +1,7 @@
+body {
+    font-family: sans-serif;
+    font-size: .85em;
+}
 div {
     box-sizing:border-box;
 }
@@ -51,7 +55,7 @@ li {
     font-size:4em;
     width:100%;
     text-align:center;
-    text-shadow: 1px 1px 2px black;
+    text-shadow: 1px 1px .5px black;
     top:50px;
 }
 #TipsDiv {
@@ -61,7 +65,7 @@ li {
     background:rgba(52, 177, 181);
     background: rgba(52, 177, 181, 0.3);
     border-radius: 5px;
-    box-shadow: 1px 1px 25px 0px rgba(219,219,219,1);
+    box-shadow: 1px 1px 2px 0px rgba(219,219,219,1);
     margin: 10px auto 0 auto;
     text-align: center;
 }
@@ -83,7 +87,7 @@ li {
     height:40px;
     border: rgb(52, 177, 181) solid 4px;
     border-radius: 5px 0 0 5px;
-    box-shadow: 1px 1px 25px 0px rgba(219,219,219,1);
+    box-shadow: 1px 1px 2px 0px rgba(219,219,219,1);
     font-size:1.5em;
     color:rgb(119, 115, 115);
 }
@@ -110,7 +114,7 @@ li {
     display:inline-block;
     border: none;
     text-align:center;
-    text-shadow: 1px 1px 2px black;
+    text-shadow: 1px 1px .5px black;
 }
 nav ul {
     margin:0;
@@ -129,7 +133,7 @@ nav li a {
     text-shadow: none;
 }
 .item {
-    box-shadow: 1px 1px 25px 0px rgba(219,219,219,1);
+    box-shadow: 1px 1px 2px 0px rgba(219,219,219,1);
     text-decoration:none;
     width:220px;
     display:inline-block;
@@ -141,7 +145,7 @@ nav li a {
     border-radius:5px;
     font-size:1.2em;
     cursor: pointer;
-    text-shadow: 1px 1px 2px black;
+    text-shadow: 1px 1px .5px black;
 }
 .item:hover {
     background: rgb(70, 194, 196);
@@ -159,5 +163,5 @@ nav li a {
     background:inherit;
     color:white;
     border:none;
-    text-shadow: 1px 1px 2px black;
+    text-shadow: 1px 1px .5px black;
 }
